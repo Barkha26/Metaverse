@@ -21,7 +21,7 @@ public class MovementController : MonoBehaviour
         {
 
             //Feed moveDirection with input.
-            moveDirection = new Vector3(Input.GetAxis("Vertical"), 0, -Input.GetAxis("Horizontal"));
+            moveDirection = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
             moveDirection = transform.TransformDirection(moveDirection);
 
             //ForUI
@@ -33,11 +33,14 @@ public class MovementController : MonoBehaviour
                 moveDirection.y = jumpSpeed;
 
         }
-        turner = Input.GetAxis("Mouse X") * sensitivity;
-        if (turner != 0)
+        if (Input.GetMouseButton(0))
         {
-            //Code for action on mouse moving right
-            transform.eulerAngles += new Vector3(0, turner, 0);
+            turner = Input.GetAxis("Mouse X") * sensitivity;
+            if (turner != 0)
+            {
+                //Code for action on mouse moving right
+                transform.eulerAngles += new Vector3(0, turner, 0);
+            }
         }
 
         //Applying gravity to the controller
