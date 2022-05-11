@@ -186,7 +186,7 @@ public class APIManager : MonoBehaviour
     /// <returns></returns>
     private IEnumerator CallGetAudioType(string url, Action<AudioClip> OnAudioDownloadSuccess)
     {
-        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip("https://d2q23p4t0ij9e0.cloudfront.net/Non_Stop_Bollywood_Punjabi_English_Remix_Songs_7d74244436.mp3", AudioType.MPEG))
+        using (UnityWebRequest www = UnityWebRequestMultimedia.GetAudioClip(url, AudioType.MPEG))
         {
             yield return www.SendWebRequest();
 
